@@ -1,67 +1,48 @@
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
     margin: 0;
+    font-family: Arial, sans-serif;
 }
 
 .container {
-    background-color: white;
+    max-width: 600px;
+    margin: 0 auto;
     padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 300px;
 }
 
-input {
-    margin-top: 10px;
-    padding: 8px;
-    width: 100%;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.button-group {
-    margin-top: 10px;
-}
-
-button {
-    margin: 5px;
-    padding: 10px;
-    width: 100px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-#show-answer-btn {
-    background-color: #f39c12;
-}
-
-#show-answer-btn:hover {
-    background-color: #e67e22;
-}
-
-#next-btn {
-    background-color: #3498db;
-}
-
-#next-btn:hover {
-    background-color: #2980b9;
-}
-
-.shortcut-info {
-    margin-top: 20px;
-    text-align: left;
+.progress {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: gray;
     font-size: 0.9em;
+    opacity: 0.7;
+}
+
+#summary {
+    width: 90%; /* 요약을 가로로 넓게 */
+    margin: 20px auto;
+    overflow-x: auto; /* 테이블이 잘리면 스크롤 생성 */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+@media (orientation: landscape) {
+    .container {
+        max-width: 800px;
+    }
 }

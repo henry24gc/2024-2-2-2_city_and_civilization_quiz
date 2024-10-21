@@ -1,36 +1,50 @@
-let currentQuestion = {}; // 현재 문제 저장
-let usedQuestions = []; // 이미 푼 문제 인덱스 저장
-let results = []; // 정답 결과 저장
+let currentQuestion = {};
+let usedQuestions = [];
+let results = [];
 
-// 공백과 대소문자 무시한 비교 함수
-function normalizeText(text) {
-    return text.replace(/\s+/g, '').toLowerCase();
+// 진행 상황 업데이트
+function updateProgress() {
+    const progress = `${usedQuestions.length} / ${quizData.length} 문제 완료`;
+    document.getElementById('progress').textContent = progress;
 }
+
+// 페이지 로드 시 첫 문제 로드
+window.onload = function() {
+    loadQuestion();
+    updateProgress();
+};
 
 // 랜덤 문제 로드 (중복 방지)
 function loadQuestion() {
     if (usedQuestions.length === quizData.length) {
-        showSummary(); // 모든 문제를 풀면 요약 표시
+        showSummary(); // 모든 문제 완료 시 요약 표시
         return;
     }
 
     let randomIndex;
     do {
         randomIndex = Math.floor(Math.random() * quizData.length);
-    } while (usedQuestions.includes(randomIndex)); // 중복 방지
+    } while (usedQuestions.includes(randomIndex));
 
     currentQuestion = quizData[randomIndex];
-    usedQuestions.push(randomIndex); // 사용된 문제 기록
+    usedQuestions.push(randomIndex);
 
     document.getElementById('question').textContent = currentQuestion.question;
-    document.getElementById('answer').value = ""; // 입력 초기화
-    document.getElementById('answer').focus(); // 입력 포커스 설정
+    document.getElementById('answer').value = "";
+    document.getElementById('answer').focus();
 
-    // 결과 및 버튼 초기화
+    // 초기화
     document.getElementById('result').textContent = "";
     document.getElementById('submit-btn').style.display = "inline-block";
     document.getElementById('show-answer-btn').style.display = "none";
     document.getElementById('next-btn').style.display = "none";
+
+    updateProgress();
+}
+
+// 공백과 대소문자 무시한 비교
+function normalizeText(text) {
+    return text.replace(/\s+/g, '').toLowerCase();
 }
 
 // 정답 제출 처리
@@ -38,13 +52,16 @@ function submitAnswer() {
     const userAnswer = document.getElementById('answer').value.trim();
     const isCorrect = normalizeText(userAnswer) === normalizeText(currentQuestion.answer);
 
-    // 결과 기록 저장
-    results.push({
-        question: currentQuestion.question,
-        correctAnswer: currentQuestion.answer,
-        userAnswer: userAnswer,
-        isCorrect: isCorrect
-    });
+    // 이미 존재하는 문제 결과가 없으면 새로 저장
+    const existingResult = results.find(r => r.question === currentQuestion.question);
+    if (!existingResult) {
+        results.push({
+            question: currentQuestion.question,
+            correctAnswer: currentQuestion.answer,
+            userAnswer: userAnswer,
+            isCorrect: isCorrect
+        });
+    }
 
     const resultElement = document.getElementById('result');
     if (isCorrect) {
@@ -66,7 +83,7 @@ function showAnswer() {
     document.getElementById('next-btn').style.display = "inline-block";
 }
 
-// 모든 문제 완료 후 요약 표시
+// 요약 표시
 function showSummary() {
     const summaryDiv = document.getElementById('summary');
     summaryDiv.innerHTML = "<h2>모든 문제를 완료했습니다!</h2>";
@@ -93,19 +110,16 @@ function showSummary() {
     });
 
     summaryDiv.appendChild(resultTable);
-    summaryDiv.style.display = "block"; // 요약 표시
+    summaryDiv.style.display = "block";
 }
 
-// 키보드 이벤트 처리 (엔터와 Shift+엔터)
+// 키보드 이벤트 처리
 function handleKeyPress(event) {
     if (event.key === "Enter" && !event.shiftKey) {
-        event.preventDefault(); // 기본 동작 방지
+        event.preventDefault();
         submitAnswer();
     } else if (event.key === "Enter" && event.shiftKey) {
-        event.preventDefault(); // 기본 동작 방지
+        event.preventDefault();
         loadQuestion();
     }
 }
-
-// 페이지 로드 시 첫 문제 로드
-window.onload = loadQuestion;
