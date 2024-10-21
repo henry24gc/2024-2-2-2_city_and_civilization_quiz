@@ -10,10 +10,10 @@ const quizData = [
     { question: "‘저장’으로 ( )이 탄생", answer: "자본" },
     { question: "( )의 탄생", answer: "계급" },
     { question: "( ) 농업(_문명) 이후", answer: "전쟁" },
-    { question: "농업은 의식주를 바꾸고 ( )도 바꾼다", answer: "‘인간다움’" },
+    { question: "농업은 의식주를 바꾸고 ( )도 바꾼다", answer: "인간다움" },
     { question: "( )은 사회를 구성하는 세포", answer: "집" },
     { question: "( )전파축", answer: "동서" },
     { question: "농사짓는 수메르 : 토템 대신 ( )", answer: "신" },
     { question: "Uruk 신전 기능: ( )", answer: "도시 플랫폼" },
-    { question: "도시 간 전쟁은 ( )간 투쟁", answer: "‘세계와 신화‘" }
+    { question: "도시 간 전쟁은 ( )간 투쟁", answer: "세계와 신화" }
 ];
