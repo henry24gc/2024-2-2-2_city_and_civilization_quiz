@@ -11,8 +11,9 @@
         <h1>빈칸 채우기 문제</h1>
         <p id="question"></p>
 
-        <input type="text" id="answer" placeholder="답을 입력하세요">
-        <button onclick="submitAnswer()">제출</button>
+        <input type="text" id="answer" placeholder="답을 입력하세요" onkeydown="handleEnter(event)">
+        <button id="submit-btn" onclick="submitAnswer()">제출</button>
+        <button id="next-btn" onclick="loadQuestion()" style="display: none;">다음 문제</button>
 
         <p id="result"></p>
     </div>
