@@ -1,11 +1,16 @@
 let currentQuestion = {}; // 현재 문제 저장
-let usedQuestions = []; // 푼 문제 목록
-let results = []; // 정오표 저장
+let usedQuestions = []; // 이미 푼 문제 인덱스 저장
+let results = []; // 정답 결과 저장
 
-// 문제를 랜덤으로 로드 (중복 방지)
+// 공백과 대소문자 무시한 비교 함수
+function normalizeText(text) {
+    return text.replace(/\s+/g, '').toLowerCase();
+}
+
+// 랜덤 문제 로드 (중복 방지)
 function loadQuestion() {
     if (usedQuestions.length === quizData.length) {
-        showSummary(); // 모든 문제를 풀면 결과 요약 표시
+        showSummary(); // 모든 문제를 풀면 요약 표시
         return;
     }
 
@@ -15,12 +20,11 @@ function loadQuestion() {
     } while (usedQuestions.includes(randomIndex)); // 중복 방지
 
     currentQuestion = quizData[randomIndex];
-    usedQuestions.push(randomIndex); // 사용한 문제 기록
-    document.getElementById('question').textContent = currentQuestion.question;
+    usedQuestions.push(randomIndex); // 사용된 문제 기록
 
-    // 입력 필드 초기화 및 포커스 설정
-    document.getElementById('answer').value = "";
-    document.getElementById('answer').focus();
+    document.getElementById('question').textContent = currentQuestion.question;
+    document.getElementById('answer').value = ""; // 입력 초기화
+    document.getElementById('answer').focus(); // 입력 포커스 설정
 
     // 결과 및 버튼 초기화
     document.getElementById('result').textContent = "";
@@ -29,19 +33,10 @@ function loadQuestion() {
     document.getElementById('next-btn').style.display = "none";
 }
 
-// 공백과 대소문자를 무시한 비교
-function normalizeText(text) {
-    return text.replace(/\s+/g, '').toLowerCase();
-}
-
 // 정답 제출 처리
 function submitAnswer() {
     const userAnswer = document.getElementById('answer').value.trim();
-    const normalizedUserAnswer = normalizeText(userAnswer);
-    const normalizedCorrectAnswer = normalizeText(currentQuestion.answer);
-    const resultElement = document.getElementById('result');
-
-    const isCorrect = normalizedUserAnswer === normalizedCorrectAnswer;
+    const isCorrect = normalizeText(userAnswer) === normalizeText(currentQuestion.answer);
 
     // 결과 기록 저장
     results.push({
@@ -51,14 +46,15 @@ function submitAnswer() {
         isCorrect: isCorrect
     });
 
+    const resultElement = document.getElementById('result');
     if (isCorrect) {
         resultElement.textContent = "정답입니다! 🎉";
         resultElement.style.color = "green";
-        document.getElementById('next-btn').style.display = "inline-block"; // 다음 문제 버튼 표시
+        document.getElementById('next-btn').style.display = "inline-block";
     } else {
         resultElement.textContent = "오답입니다. 다시 시도해보세요! ❌";
         resultElement.style.color = "red";
-        document.getElementById('show-answer-btn').style.display = "inline-block"; // 정답 보기 버튼 표시
+        document.getElementById('show-answer-btn').style.display = "inline-block";
     }
 }
 
@@ -67,10 +63,10 @@ function showAnswer() {
     const resultElement = document.getElementById('result');
     resultElement.textContent = `정답은: ${currentQuestion.answer}`;
     resultElement.style.color = "blue";
-    document.getElementById('next-btn').style.display = "inline-block"; // 다음 문제 버튼 표시
+    document.getElementById('next-btn').style.display = "inline-block";
 }
 
-// 모든 문제를 푼 후 요약 표시
+// 모든 문제 완료 후 요약 표시
 function showSummary() {
     const summaryDiv = document.getElementById('summary');
     summaryDiv.innerHTML = "<h2>모든 문제를 완료했습니다!</h2>";
@@ -100,14 +96,14 @@ function showSummary() {
     summaryDiv.style.display = "block"; // 요약 표시
 }
 
-// 키보드 입력 처리 (엔터와 Shift+엔터)
+// 키보드 이벤트 처리 (엔터와 Shift+엔터)
 function handleKeyPress(event) {
     if (event.key === "Enter" && !event.shiftKey) {
-        event.preventDefault(); // 기본 동작 방지 (폼 제출 방지)
-        submitAnswer(); // 엔터는 제출
+        event.preventDefault(); // 기본 동작 방지
+        submitAnswer();
     } else if (event.key === "Enter" && event.shiftKey) {
         event.preventDefault(); // 기본 동작 방지
-        loadQuestion(); // Shift + 엔터는 다음 문제
+        loadQuestion();
     }
 }
 
