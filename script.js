@@ -44,8 +44,10 @@ function showAnswer() {
 // 키보드 입력 처리 (엔터와 Shift+엔터)
 function handleKeyPress(event) {
     if (event.key === "Enter" && !event.shiftKey) {
+        event.preventDefault(); // 기본 동작 방지 (폼 제출 방지)
         submitAnswer(); // 엔터는 제출
     } else if (event.key === "Enter" && event.shiftKey) {
+        event.preventDefault(); // 기본 동작 방지
         loadQuestion(); // Shift + 엔터는 다음 문제
     }
 }
