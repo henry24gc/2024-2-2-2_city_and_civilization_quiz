@@ -9,7 +9,7 @@ function updateProgress() {
 }
 
 // 페이지 로드 시 첫 문제 로드
-window.onload = function() {
+window.onload = function () {
     loadQuestion();
     updateProgress();
 };
@@ -30,17 +30,19 @@ function loadQuestion() {
     usedQuestions.push(randomIndex);
 
     document.getElementById('question').textContent = currentQuestion.question;
-    document.getElementById('answer').value = "";
-    document.getElementById('answer').focus();
-
-    // 초기화
-    document.getElementById('result').textContent = "";
-    document.getElementById('submit-btn').style.display = "inline-block";
-    document.getElementById('show-answer-btn').style.display = "none";
-    document.getElementById('next-btn').style.display = "none";
+    clearAnswerInput(); // 입력 필드 초기화
+    resetResult(); // 결과 메시지 초기화
 
     updateProgress();
     resetLayout();
+}
+
+// 입력 필드와 포커스 초기화
+function clearAnswerInput() {
+    const answerInput = document.getElementById('answer');
+    answerInput.value = "";
+    answerInput.blur(); // 기존 입력기 이슈 해소를 위해 포커스를 제거했다가 재설정
+    setTimeout(() => answerInput.focus(), 0); // 포커스를 다시 설정
 }
 
 // 공백과 대소문자 무시한 비교
@@ -119,6 +121,14 @@ function showSummary() {
 // 기본 레이아웃 복원
 function resetLayout() {
     document.getElementById('container').style.maxWidth = "600px";
+}
+
+// 결과 메시지 초기화
+function resetResult() {
+    document.getElementById('result').textContent = "";
+    document.getElementById('submit-btn').style.display = "inline-block";
+    document.getElementById('show-answer-btn').style.display = "none";
+    document.getElementById('next-btn').style.display = "none";
 }
 
 // 키보드 이벤트 처리
