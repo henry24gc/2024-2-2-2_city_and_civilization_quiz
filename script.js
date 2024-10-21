@@ -17,7 +17,7 @@ window.onload = function() {
 // 랜덤 문제 로드 (중복 방지)
 function loadQuestion() {
     if (usedQuestions.length === quizData.length) {
-        showSummary(); // 모든 문제 완료 시 요약 표시
+        showSummary();
         return;
     }
 
@@ -40,6 +40,7 @@ function loadQuestion() {
     document.getElementById('next-btn').style.display = "none";
 
     updateProgress();
+    resetLayout();
 }
 
 // 공백과 대소문자 무시한 비교
@@ -52,7 +53,6 @@ function submitAnswer() {
     const userAnswer = document.getElementById('answer').value.trim();
     const isCorrect = normalizeText(userAnswer) === normalizeText(currentQuestion.answer);
 
-    // 이미 존재하는 문제 결과가 없으면 새로 저장
     const existingResult = results.find(r => r.question === currentQuestion.question);
     if (!existingResult) {
         results.push({
@@ -83,7 +83,7 @@ function showAnswer() {
     document.getElementById('next-btn').style.display = "inline-block";
 }
 
-// 요약 표시
+// 요약 표시 및 레이아웃 변경
 function showSummary() {
     const summaryDiv = document.getElementById('summary');
     summaryDiv.innerHTML = "<h2>모든 문제를 완료했습니다!</h2>";
@@ -111,6 +111,14 @@ function showSummary() {
 
     summaryDiv.appendChild(resultTable);
     summaryDiv.style.display = "block";
+
+    // 넓은 레이아웃 적용
+    document.getElementById('container').style.maxWidth = "90%";
+}
+
+// 기본 레이아웃 복원
+function resetLayout() {
+    document.getElementById('container').style.maxWidth = "600px";
 }
 
 // 키보드 이벤트 처리

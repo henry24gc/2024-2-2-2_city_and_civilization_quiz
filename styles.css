@@ -7,6 +7,7 @@ body {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
+    transition: max-width 0.3s ease;
 }
 
 .progress {
@@ -18,10 +19,18 @@ body {
     opacity: 0.7;
 }
 
+.shortcut-info {
+    text-align: center;
+    font-size: 0.75em;
+    color: #888;
+    margin-top: 10px;
+}
+
 #summary {
-    width: 90%; /* 요약을 가로로 넓게 */
+    display: none;
     margin: 20px auto;
-    overflow-x: auto; /* 테이블이 잘리면 스크롤 생성 */
+    width: 90%; /* 요약 화면에서는 넓은 레이아웃 사용 */
+    overflow-x: auto;
 }
 
 table {
