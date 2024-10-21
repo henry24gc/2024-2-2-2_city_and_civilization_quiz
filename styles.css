@@ -24,8 +24,12 @@ input {
     border-radius: 4px;
 }
 
-button {
+.button-group {
     margin-top: 10px;
+}
+
+button {
+    margin: 5px;
     padding: 10px;
     background-color: #4CAF50;
     color: white;
@@ -36,4 +40,26 @@ button {
 
 button:hover {
     background-color: #45a049;
+}
+
+#show-answer-btn {
+    background-color: #f39c12;
+}
+
+#show-answer-btn:hover {
+    background-color: #e67e22;
+}
+
+#next-btn {
+    background-color: #3498db;
+}
+
+#next-btn:hover {
+    background-color: #2980b9;
+}
+
+.shortcut-info {
+    margin-top: 20px;
+    text-align: left;
+    font-size: 0.9em;
 }

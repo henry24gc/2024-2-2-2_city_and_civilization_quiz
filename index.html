@@ -9,13 +9,30 @@
 <body>
     <div class="container">
         <h1>빈칸 채우기 문제</h1>
+        
         <p id="question"></p>
 
-        <input type="text" id="answer" placeholder="답을 입력하세요" onkeydown="handleEnter(event)">
-        <button id="submit-btn" onclick="submitAnswer()">제출</button>
-        <button id="next-btn" onclick="loadQuestion()" style="display: none;">다음 문제</button>
+        <input 
+            type="text" 
+            id="answer" 
+            placeholder="답을 입력하세요"
+            onkeydown="handleKeyPress(event)">
+        
+        <div class="button-group">
+            <button id="submit-btn" onclick="submitAnswer()">제출</button>
+            <button id="show-answer-btn" onclick="showAnswer()" style="display: none;">정답 보기</button>
+            <button id="next-btn" onclick="loadQuestion()" style="display: none;">다음 문제</button>
+        </div>
 
         <p id="result"></p>
+
+        <div class="shortcut-info">
+            <p>💡 <b>단축키 안내:</b></p>
+            <ul>
+                <li>엔터(Enter): 정답 제출</li>
+                <li>Shift + 엔터: 다음 문제로 이동</li>
+            </ul>
+        </div>
     </div>
 
     <script src="data.js"></script>

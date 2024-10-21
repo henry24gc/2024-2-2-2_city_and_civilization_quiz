@@ -10,9 +10,10 @@ function loadQuestion() {
     document.getElementById('answer').value = "";
     document.getElementById('answer').focus();
 
-    // 결과와 버튼 초기화
+    // 결과 및 버튼 초기화
     document.getElementById('result').textContent = "";
     document.getElementById('submit-btn').style.display = "inline-block";
+    document.getElementById('show-answer-btn').style.display = "none";
     document.getElementById('next-btn').style.display = "none";
 }
 
@@ -24,20 +25,28 @@ function submitAnswer() {
     if (userAnswer === currentQuestion.answer) {
         resultElement.textContent = "정답입니다! 🎉";
         resultElement.style.color = "green";
+        document.getElementById('next-btn').style.display = "inline-block"; // 다음 문제 버튼 표시
     } else {
         resultElement.textContent = "오답입니다. 다시 시도해보세요! ❌";
         resultElement.style.color = "red";
+        document.getElementById('show-answer-btn').style.display = "inline-block"; // 정답 보기 버튼 표시
     }
-
-    // 제출 버튼 숨기고 다음 버튼 표시
-    document.getElementById('submit-btn').style.display = "none";
-    document.getElementById('next-btn').style.display = "inline-block";
 }
 
-// 엔터키로 정답 제출
-function handleEnter(event) {
-    if (event.key === "Enter") {
-        submitAnswer();
+// 정답 보기 기능
+function showAnswer() {
+    const resultElement = document.getElementById('result');
+    resultElement.textContent = `정답은: ${currentQuestion.answer}`;
+    resultElement.style.color = "blue";
+    document.getElementById('next-btn').style.display = "inline-block"; // 다음 문제 버튼 표시
+}
+
+// 키보드 입력 처리 (엔터와 Shift+엔터)
+function handleKeyPress(event) {
+    if (event.key === "Enter" && !event.shiftKey) {
+        submitAnswer(); // 엔터는 제출
+    } else if (event.key === "Enter" && event.shiftKey) {
+        loadQuestion(); // Shift + 엔터는 다음 문제
     }
 }
 
