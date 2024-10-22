@@ -14,7 +14,7 @@ const quizData = [
     { question: "( ) 농업(_문명) 이후 : 집단의 의지(세계관)을 다른 집단에 강제하는 것", answer: "전쟁" },
     { question: "농업은 의식주를 바꾸고 ( )도 바꾼다", answer: "인간다움" },
     { question: "( )은 사회를 구성하는 세포", answer: "집" },
-    { question: "( ) : 가축, 작물은 유사한 기후를 따라 전파", answer: "동파전파축" },
+    { question: "( ) : 가축, 작물은 유사한 기후를 따라 전파", answer: "동서전파축" },
     { question: "농사짓는 수메르 : 토템 대신 ( )", answer: "신" },
     { question: "Uruk 신전 기능: 저장 및 유통, 교환 및 분배 -> ( )", answer: "도시 플랫폼" },
     { question: "도시 간 전쟁은 ( )간 투쟁", answer: "세계와 신화" }
