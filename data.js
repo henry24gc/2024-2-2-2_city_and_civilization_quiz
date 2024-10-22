@@ -4,6 +4,7 @@ const quizData = [
     { question: "후기 구석기 시대에 이르면 ( )이 가능해지고, 이 잉여에서 조직화, 사치, 예술 등 다양한 창발이 일어남", answer: "잉여 수렵 생산" },
     { question: "( ): 초현실 체험을 주는 아우라 공간", answer: "동굴효과, CPS, cyber physical system" },
     { question: "금융혁명: 신용 ( ) -> 자본의 저장장치", answer: "저장"},
+    { question: "교역과 거래는 ( ) 촉진", answer: "잉여 생산"},
     { question: "( ), 신화神話 공동체", answer: "민족" },
     { question: "생산과 소비의 ( ) : 동시동소 제약을 해체", answer: "De-coupling" },
     { question: "수렵 집단이 건설한 피라미드 : ( )", answer: "교역 플랫폼" },
