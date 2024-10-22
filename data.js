@@ -10,7 +10,7 @@ const quizData = [
     { question: "수렵 집단이 건설한 피라미드 : ( )", answer: "교역 플랫폼" },
     { question: "수렵시대 신전 -> 궤베클리에서는? ( )", answer: "신전은 장터다" },
     { question: "‘저장’으로 ( )이 탄생", answer: "자본" },
-    { question: "( )의 탄생", answer: "계급" },
+    { question: "평등의 종말 -> ( )의 탄생", answer: "계급" },
     { question: "( ) 농업(_문명) 이후 : 집단의 의지(세계관)을 다른 집단에 강제하는 것", answer: "전쟁" },
     { question: "농업은 의식주를 바꾸고 ( )도 바꾼다", answer: "인간다움" },
     { question: "( )은 사회를 구성하는 세포", answer: "집" },
