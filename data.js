@@ -17,5 +17,7 @@ const quizData = [
     { question: "( ) : 가축, 작물은 유사한 기후를 따라 전파", answer: "동서전파축" },
     { question: "농사짓는 수메르 : 토템 대신 ( )", answer: "신" },
     { question: "Uruk 신전 기능: 저장 및 유통, 교환 및 분배 -> ( )", answer: "도시 플랫폼" },
-    { question: "도시 간 전쟁은 ( )간 투쟁", answer: "세계와 신화" }
+    { question: "도시 간 전쟁은 ( )간 투쟁", answer: "세계와 신화" },
+    { question: "국가는 ( )를 따르는 집단 : 도시의 확장", answer: "같은 법과 지배체제" },
+    { question: "영장류 혹은 유인원의 ( ) 시스템", answer: "둥지" }
 ];
