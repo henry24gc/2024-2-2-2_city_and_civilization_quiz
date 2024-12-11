@@ -13,40 +13,21 @@
         <h2>문제를 어떻게 풀고 싶으신가요?</h2>
         <button onclick="startQuiz('random')">랜덤 모드</button>
         <button onclick="startQuiz('sequential')">순서대로</button>
-    </div>
+    </div>    
 
     <!-- 문제 풀이 화면 -->
-    <div id="quiz-container" style="display: none;">
+    <div class="container" id="quiz-container" style="display: none;">
         <div id="progress"></div>
         <div id="question"></div>
         <input type="text" id="answer" placeholder="답을 입력하세요" />
+        
+        <!-- 퀴즈 문제와 관련된 이미지 추가 -->
+        <img id="quiz-image" src="" alt="문제 이미지" style="width: 100%; max-width: 500px; height: auto; display: none; margin-top: 20px;">
+        
         <div id="result"></div>
         <button id="submit-btn" onclick="submitAnswer()">제출</button>
         <button id="show-answer-btn" style="display: none;" onclick="showAnswer()">정답 보기</button>
         <button id="next-btn" style="display: none;" onclick="loadQuestion()">다음 문제</button>
-    </div>
-
-
-    <div class="container" id="container">
-        <div class="progress" id="progress"></div> <!-- 진행 상황 표시 -->
-
-        <h1>빈칸 채우기 문제</h1>
-        
-        <p id="question"></p>
-
-        <input 
-            type="text" 
-            id="answer" 
-            placeholder="답을 입력하세요" 
-            onkeydown="handleKeyPress(event)">
-
-        <div class="button-group">
-            <button id="submit-btn" onclick="submitAnswer()">제출</button>
-            <button id="show-answer-btn" onclick="showAnswer()" style="display: none;">정답 보기</button>
-            <button id="next-btn" onclick="loadQuestion()" style="display: none;">다음 문제</button>
-        </div>
-
-        <p id="result"></p>
 
         <div class="shortcut-info">
             💡 단축키 안내:
