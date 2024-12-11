@@ -125,8 +125,9 @@ function showAnswer() {
     resultElement.textContent = `정답은: ${currentQuestion.answer}`;
     resultElement.style.color = "blue";
 
+    // 이미지 로드 부분 예시
     if (currentQuestion.image) {
-        resultImage.src = currentQuestion.image;
+        resultImage.src = currentQuestion.image; // 올바른 경로로 설정
         resultImage.style.display = "block"; // 이미지 표시
     } else {
         resultImage.style.display = "none"; // 이미지가 없으면 숨김
