@@ -50,6 +50,14 @@ th {
     font-weight: bold;
 }
 
+#result-image {
+    width: 100%;
+    max-width: 500px; /* 이미지의 최대 크기를 지정 */
+    height: auto;
+    display: none; /* 기본적으로 숨김 */
+    margin-top: 20px;
+}
+
 @media (orientation: landscape) {
     .container {
         max-width: 800px;

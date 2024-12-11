@@ -128,7 +128,7 @@ function showAnswer() {
 
     if (currentQuestion.image) {
         resultImage.src = currentQuestion.image;
-        resultImage.style.display = "block";
+        resultImage.style.display = "block"; // 이미지 표시
     } else {
         resultImage.style.display = "none"; // 이미지가 없으면 숨김
     }

@@ -20,12 +20,15 @@
         <div id="progress"></div>
         <div id="question"></div>
         <input type="text" id="answer" placeholder="답을 입력하세요" />
+        
+        <!-- 퀴즈 문제와 관련된 이미지 추가 -->
+        <img id="quiz-image" src="quiz-image.jpg" alt="문제 이미지" style="width: 100%; max-width: 500px; height: auto; display: none; margin-top: 20px;">
+        
         <div id="result"></div>
         <button id="submit-btn" onclick="submitAnswer()">제출</button>
         <button id="show-answer-btn" style="display: none;" onclick="showAnswer()">정답 보기</button>
         <button id="next-btn" style="display: none;" onclick="loadQuestion()">다음 문제</button>
     </div>
-
 
     <div class="container" id="container">
         <div class="progress" id="progress"></div> <!-- 진행 상황 표시 -->
@@ -48,6 +51,9 @@
 
         <p id="result"></p>
 
+        <!-- 결과 이미지 추가 -->
+        <img id="result-image" src="result-image.jpg" alt="결과 이미지" style="width: 100%; max-width: 500px; height: auto; display: none; margin-top: 20px;">
+        
         <div class="shortcut-info">
             💡 단축키 안내:
             <ul style="margin: 5px 0; padding-left: 20px; font-size: 0.9em; color: gray;">
