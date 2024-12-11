@@ -13,7 +13,7 @@ function startQuiz(mode) {
 
     // 모드 선택 화면 숨기고 문제 풀이 화면 표시
     document.getElementById('mode-selection').style.display = "none";
-    document.getElementById('quiz-container').style.display = "block";
+    document.getElementById('quiz-container').style.display = "block"; // 문제 풀이 화면 표시
 
     loadQuestion();
     updateProgress();
@@ -84,6 +84,7 @@ function clearAnswerInput() {
 }
 
 // 나머지 기존 함수는 그대로 유지...
+
 
 
 // 공백과 대소문자 무시한 비교
