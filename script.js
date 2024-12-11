@@ -77,11 +77,21 @@ function submitAnswer() {
     }
 }
 
-// 정답 보기 기능
+// 정답 보기 기능 + 이미지도 같이
 function showAnswer() {
     const resultElement = document.getElementById('result');
+    const resultImage = document.getElementById('result-image');
+
     resultElement.textContent = `정답은: ${currentQuestion.answer}`;
     resultElement.style.color = "blue";
+
+    if (currentQuestion.image) {
+        resultImage.src = currentQuestion.image;
+        resultImage.style.display = "block";
+    } else {
+        resultImage.style.display = "none"; // 이미지가 없으면 숨김
+    }
+
     document.getElementById('next-btn').style.display = "inline-block";
 }
 
