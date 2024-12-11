@@ -1,92 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Quiz Application</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            max-width: 600px;
-            margin: 20px auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-        #question {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-        }
-        #answer {
-            width: 100%;
-            padding: 10px;
-            margin-bottom: 10px;
-            font-size: 1em;
-        }
-        #controls {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-top: 10px;
-        }
-        #submit-btn, #next-btn, #show-answer-btn {
-            padding: 10px 20px;
-            font-size: 1em;
-            margin: 5px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-        #submit-btn {
-            background-color: #4CAF50;
-            color: white;
-        }
-        #next-btn {
-            background-color: #008CBA;
-            color: white;
-            display: none;
-        }
-        #show-answer-btn {
-            background-color: #f44336;
-            color: white;
-            display: none;
-        }
-        #progress {
-            font-size: 0.9em;
-            color: gray;
-            text-align: right;
-        }
-        #result {
-            font-size: 1.2em;
-            margin-top: 10px;
-        }
-        #result-section img {
-            margin-top: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        #summary {
-            display: none;
-        }
-    </style>
+    <title>빈칸 채우기 문제</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div id="container">
-        <div id="progress"></div>
-        <div id="question"></div>
-        <input type="text" id="answer" placeholder="정답을 입력하세요">
-        <div id="controls">
-            <button id="submit-btn">제출</button>
-            <button id="show-answer-btn">정답 보기</button>
-            <button id="next-btn">다음 문제</button>
+    <div class="container" id="container">
+        <div class="progress" id="progress"></div> <!-- 진행 상황 표시 -->
+
+        <h1>빈칸 채우기 문제</h1>
+        
+        <p id="question"></p>
+
+        <input 
+            type="text" 
+            id="answer" 
+            placeholder="답을 입력하세요" 
+            onkeydown="handleKeyPress(event)">
+
+        <div class="button-group">
+            <button id="submit-btn" onclick="submitAnswer()">제출</button>
+            <button id="show-answer-btn" onclick="showAnswer()" style="display: none;">정답 보기</button>
+            <button id="next-btn" onclick="loadQuestion()" style="display: none;">다음 문제</button>
         </div>
-        <div id="result-section">
-            <p id="result"></p>
-            <img id="result-image" src="" alt="관련 이미지" style="display:none; max-width:100%; height:auto;">
+
+        <p id="result"></p>
+
+        <div class="shortcut-info">
+            💡 <span>단축키 안내: 엔터 - 제출, Shift+엔터 - 다음 문제</span>
         </div>
-        <div id="summary"></div>
+
+        <div id="summary" style="display: none;"></div>
     </div>
+
+    <script src="data.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
