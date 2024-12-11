@@ -85,8 +85,6 @@ function clearAnswerInput() {
 
 // 나머지 기존 함수는 그대로 유지...
 
-
-
 // 공백과 대소문자 무시한 비교
 function normalizeText(text) {
     return text.replace(/\s+/g, '').toLowerCase();
@@ -175,7 +173,6 @@ function showSummary() {
     document.getElementById('container').style.maxWidth = "90%";
 }
 
-
 // 기본 레이아웃 복원
 function resetLayout() {
     document.getElementById('container').style.maxWidth = "600px";
@@ -203,3 +200,5 @@ function handleKeyPress(event) {
     }
 }
 
+// 단축키 이벤트 리스너 추가 (이 부분을 추가합니다.)
+document.addEventListener('keydown', handleKeyPress);

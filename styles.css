@@ -1,31 +1,62 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-
+/* 퀴즈 컨테이너와 그 안의 요소들 중앙 정렬 */
 .container {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     transition: max-width 0.3s ease;
 }
 
-.progress {
+/* 진행 상황은 오른쪽 상단에 표시 */
+#progress {
     position: absolute;
     top: 10px;
-    right: 10px;
+    right: 20px;
     color: gray;
     font-size: 0.9em;
     opacity: 0.7;
 }
 
+/* 단축키 안내 중앙 정렬 */
 .shortcut-info {
-    text-align: center;
+    text-align: center; /* 가운데 정렬 */
     font-size: 0.75em;
     color: #888;
     margin-top: 10px;
 }
 
+.shortcut-info ul {
+    margin: 5px 0;
+    padding: 0;
+}
+
+.shortcut-info li {
+    list-style-position: inside; /* 점을 왼쪽에 위치하도록 */
+}
+
+/* 문제 진행상황을 오른쪽 상단에 위치 */
+#quiz-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 수평으로 가운데 정렬 */
+    justify-content: center; /* 수직으로 가운데 정렬 */
+    width: 100%;
+}
+
+/* 답변 입력 박스 및 버튼들 중앙 정렬 */
+input[type="text"] {
+    text-align: center; /* 답 입력을 가운데 정렬 */
+    margin-bottom: 20px;
+}
+
+button {
+    margin: 10px 0;
+}
+
+/* 요약 화면 넓은 레이아웃 */
 #summary {
     display: none;
     margin: 20px auto;
