@@ -203,10 +203,14 @@ let currentQuizIndex = 0;
 
 // 퀴즈 시작 함수
 function startQuiz(mode) {
+    // 모드 선택 화면을 숨김
     document.getElementById('mode-selection').style.display = 'none';
+    // 퀴즈 화면을 보여줌
     document.getElementById('quiz-container').style.display = 'block';
+    // 첫 문제를 로드
     loadQuestion();
 }
+
 
 // 문제 로드 함수
 function loadQuestion() {
