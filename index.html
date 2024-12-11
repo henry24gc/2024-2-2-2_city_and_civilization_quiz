@@ -7,6 +7,26 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
+    <!-- 모드 선택 화면 -->
+    <div id="mode-selection">
+        <h2>문제를 어떻게 풀고 싶으신가요?</h2>
+        <button onclick="startQuiz('random')">랜덤 모드</button>
+        <button onclick="startQuiz('sequential')">순서대로</button>
+    </div>
+
+    <!-- 문제 풀이 화면 -->
+    <div id="quiz-container" style="display: none;">
+        <div id="progress"></div>
+        <div id="question"></div>
+        <input type="text" id="answer" placeholder="답을 입력하세요" />
+        <div id="result"></div>
+        <button id="submit-btn" onclick="submitAnswer()">제출</button>
+        <button id="show-answer-btn" style="display: none;" onclick="showAnswer()">정답 보기</button>
+        <button id="next-btn" style="display: none;" onclick="loadQuestion()">다음 문제</button>
+    </div>
+
+
     <div class="container" id="container">
         <div class="progress" id="progress"></div> <!-- 진행 상황 표시 -->
 
@@ -29,7 +49,12 @@
         <p id="result"></p>
 
         <div class="shortcut-info">
-            💡 <span>단축키 안내: 엔터 - 제출, Shift+엔터 - 다음 문제</span>
+            💡 단축키 안내:
+            <ul style="margin: 5px 0; padding-left: 20px; font-size: 0.9em; color: gray;">
+                <li>엔터 - 제출</li>
+                <li>Shift+엔터 - 다음 문제</li>
+                <li>Ctrl+엔터 - 정답 보기</li>
+            </ul>
         </div>
 
         <div id="summary" style="display: none;"></div>

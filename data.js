@@ -20,13 +20,13 @@ const quizData = [
         image: "4.JPEG"
     },
     {
-        question: "신왕국 시대의 과제\n후기 청동기 시대\n( ) 증강\n전략자원( ) 확보\n성장 동력 창출",
+        question: "신왕국 시대의 과제<br>후기 청동기 시대<br>( ) 증강<br>전략자원( ) 확보<br>성장 동력 창출",
         answer: "군사력 / 구리, 주석, 말, 나무",
         image: "5.JPEG"
     },
     {
         question: "이집트는 ( ), 히타이트는 ( )",
-        answer: "단일 제국군, 용병연합군",
+        answer: "단일 제국군, 용병 연합군",
         image: "6.JPEG"
     },
     {
@@ -35,7 +35,7 @@ const quizData = [
         image: "7.JPEG"
     },
     {
-        question: "카데쉬 전투 이우 ( )",
+        question: "카데쉬 전투 이후 ( )",
         answer: "청동 벨트 붕괴",
         image: "8.JPEG"
     },
@@ -130,7 +130,7 @@ const quizData = [
         image: "26.JPEG"
     },
     {
-        question: "석유, 에저니의 ( )",
+        question: "석유, 에너지의 ( )",
         answer: "황제",
         image: "27.JPEG"
     },
@@ -145,7 +145,7 @@ const quizData = [
         image: "29.JPEG"
     },
     {
-        question: "전력망이 ()다. Vladimir Il'ich Lenin",
+        question: "전력망이 ( )다. Vladimir Il'ich Lenin",
         answer: "소비에트",
         image: "30.JPEG"
     },
@@ -170,7 +170,7 @@ const quizData = [
         image: "34.JPEG"
     },
     {
-        question: "새로운 에너지의 조건 : ( )\n( ) 에너지",
+        question: "새로운 에너지의 조건 : ( )<br>( ) 에너지",
         answer: "비탄소, 질량",
         image: "35.JPEG"
     },
